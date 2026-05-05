@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - Aluguel de Festa</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div id="login-container" class="login-container">
+        <div class="login-box">
+            <h1>🔐 Admin Panel</h1>
+            <form id="login-form">
+                <input type="password" id="password" placeholder="Digite a senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="error-message" id="error-message"></p>
+        </div>
+    </div>
+
+    <div id="admin-container" class="admin-container" style="display: none;">
+        <header class="admin-header">
+            <h1>Painel Administrativo - Aluguel de Festa</h1>
+            <button id="logout-btn" class="logout-btn">Sair</button>
+        </header>
+
+        <nav class="admin-nav">
+            <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+            <button class="nav-btn" data-page="calendar">Calendário</button>
+            <button class="nav-btn" data-page="comments">Comentários</button>
+            <button class="nav-btn" data-page="dates">Datas Bloqueadas</button>
+            <button class="nav-btn" data-page="rentals">Aluguéis</button>
+            <button class="nav-btn" data-page="services">Serviços</button>
+            <button class="nav-btn" data-page="arrumacoes">Arrumações</button>
+            <button class="nav-btn" data-page="estoque">Estoque</button>
+        </nav>
+
+        <!-- Dashboard -->
+        <div id="dashboard-page" class="page active">
+            <h2>Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Pula Pula</h3>
+                    <p class="stat-number" id="stat-pula-pula">0</p>
+                    <p class="stat-label">Comentários</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Área Kids</h3>
+                    <p class="stat-number" id="stat-area-kids">0</p>
+                    <p class="stat-label">Comentários</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Arrumações</h3>
+                    <p class="stat-number" id="stat-arrumacoes">0</p>
+                    <p class="stat-label">Comentários</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Cadeiras</h3>
+                    <p class="stat-number" id="stat-cadeiras">0</p>
+                    <p class="stat-label">Comentários</p>
+                </div>
+            </div>
+            <div class="site-status">
+                <h3>Status do Site</h3>
+                <button id="site-status-btn" class="status-btn">Carregando...</button>
+            </div>
+        </div>
+
+        <!-- Comentários -->
+        <div id="comments-page" class="page">
+            <h2>Gerenciar Comentários</h2>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-service="comments">Pula Pula</button>
+                <button class="tab-btn" data-service="comments-area-kids">Área Kids</button>
+                <button class="tab-btn" data-service="comments-arrumacoes">Arrumações</button>
+                <button class="tab-btn" data-service="comments-cadeiras">Cadeiras</button>
+            </div>
+
+            <div id="comments-list" class="comments-list">
+                <!-- Comentários serão carregados aqui -->
+            </div>
+        </div>
+
+        <!-- Datas Bloqueadas -->
+        <div id="dates-page" class="page">
+            <h2>Gerenciar Datas Bloqueadas</h2>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-service="pula_pula">Pula Pula</button>
+                <button class="tab-btn" data-service="area_kids">Área Kids</button>
+                <button class="tab-btn" data-service="arrumacoes">Arrumações</button>
+                <button class="tab-btn" data-service="cadeiras">Cadeiras</button>
+            </div>
+
+            <div id="dates-list" class="dates-list">
+                <!-- Datas bloqueadas serão carregadas aqui -->
+            </div>
+            
+            <div class="add-date-section">
+                <h3>Bloquear Nova Data</h3>
+                <form id="block-date-form">
+                    <input type="date" id="new-date" required>
+                    <button type="submit">Bloquear Data</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Aluguéis -->
+        <div id="rentals-page" class="page">
+            <h2>Gerenciar Aluguéis</h2>
+            <div class="service-tabs">
+                <button class="tab-btn active" data-service="pula_pula">Pula Pula</button>
+                <button class="tab-btn" data-service="area_kids">Área Kids</button>
+                <button class="tab-btn" data-service="arrumacoes">Arrumações</button>
+                <button class="tab-btn" data-service="cadeiras">Cadeiras</button>
+            </div>
+
+            <div id="rented-items-list" class="dates-list">
+                <!-- Aluguéis marcados serão listados aqui -->
+            </div>
+
+            <div class="add-date-section">
+                <h3>Marcar Item Como Alugado</h3>
+                <form id="mark-rented-form">
+                    <label for="rent-date">Data do Evento:</label>
+                    <input type="date" id="rent-date" required>
+
+                    <label for="rent-item-description">Descrição do Item / Serviço:</label>
+                    <input type="text" id="rent-item-description" placeholder="Ex: Cadeira, Mesa, Arrumação" required>
+
+                    <div id="rent-chair-table-fields">
+                        <label for="rent-chairs">Quantidade de Cadeiras:</label>
+                        <input type="number" id="rent-chairs" min="0" value="0">
+
+                        <label for="rent-tables">Quantidade de Mesas:</label>
+                        <input type="number" id="rent-tables" min="0" value="0">
+
+                        <label for="rent-chair-price">Preço por Cadeira (R$):</label>
+                        <input type="number" id="rent-chair-price" step="0.01" min="0" value="5.00">
+
+                        <label for="rent-table-price">Preço por Mesa (R$):</label>
+                        <input type="number" id="rent-table-price" step="0.01" min="0" value="15.00">
+                    </div>
+
+                    <label for="rent-item-code">Código do Item (opcional):</label>
+                    <input type="text" id="rent-item-code" placeholder="Ex: ARR1234">
+
+                    <label for="rent-customer-name">Nome do Cliente:</label>
+                    <input type="text" id="rent-customer-name" required>
+
+                    <label for="rent-customer-phone">Telefone do Cliente:</label>
+                    <input type="tel" id="rent-customer-phone" required>
+
+                    <label for="rent-customer-email">Email do Cliente:</label>
+                    <input type="email" id="rent-customer-email" required>
+
+                    <label for="rent-item-price">Preço Total do Aluguel (R$):</label>
+                    <input type="number" id="rent-item-price" step="0.01" min="0" required>
+
+                    <label for="rent-note">Observações:</label>
+                    <textarea id="rent-note" placeholder="Observações ou detalhes adicionais"></textarea>
+
+                    <button type="submit">Marcar Como Alugado</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Serviços -->
+        <div id="services-page" class="page">
+            <h2>Gerenciar Serviços</h2>
+            
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>Pula Pula</h3>
+                    <p>Ideal para crianças. Divertido e seguro.</p>
+                    <a href="paginas/pula_pula/index.html" target="_blank" class="edit-link">Ver página</a>
+                </div>
+                <div class="service-item">
+                    <h3>Área Kids</h3>
+                    <p>Espaço completo com brinquedos diversos.</p>
+                    <a href="paginas/area_kids/index.html" target="_blank" class="edit-link">Ver página</a>
+                </div>
+                <div class="service-item">
+                    <h3>Arrumações</h3>
+                    <p>Decoração profissional para eventos.</p>
+                    <a href="paginas/arrumacoes/index.html" target="_blank" class="edit-link">Ver página</a>
+                </div>
+                <div class="service-item">
+                    <h3>Cadeiras</h3>
+                    <p>Cadeiras confortáveis e elegantes.</p>
+                    <a href="paginas/cadeiras/index.html" target="_blank" class="edit-link">Ver página</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrumações -->
+        <div id="arrumacoes-page" class="page">
+            <h2>Gerenciar Arrumações</h2>
+            
+            <div class="arrumacoes-list" id="arrumacoes-list">
+                <!-- Arrumações serão carregadas aqui -->
+            </div>
+            
+            <div class="add-arrumacao-section">
+                <h3>Adicionar Nova Arrumação</h3>
+                <form id="add-arrumacao-form">
+                    <label for="arrumacao-title">Título da Arrumação:</label>
+                    <input type="text" id="arrumacao-title" required>
+
+                    <label for="arrumacao-price">Preço (R$):</label>
+                    <input type="number" id="arrumacao-price" step="0.01" min="0" required>
+
+                    <label for="arrumacao-description">Descrição:</label>
+                    <textarea id="arrumacao-description" required></textarea>
+
+                    <label for="arrumacao-carousel-images">Imagens do Carrossel:</label>
+                    <input type="file" id="arrumacao-carousel-images" accept="image/*" multiple>
+                    <small class="image-help">Selecione uma ou mais imagens para o carrossel (recomendado: 3-4 imagens)</small>
+
+                    <label for="arrumacao-gallery-images">Imagens da Galeria:</label>
+                    <input type="file" id="arrumacao-gallery-images" accept="image/*" multiple>
+                    <small class="image-help">Selecione uma ou mais imagens para a galeria de fotos</small>
+
+                    <button type="submit">Adicionar Arrumação</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Estoque -->
+        <div id="estoque-page" class="page">
+            <h2>Gerenciar Estoque</h2>
+            
+            <div class="estoque-info">
+                <div class="estoque-item">
+                    <h3>Cadeiras Disponíveis</h3>
+                    <p class="estoque-number" id="cadeiras-total">44</p>
+                    <p class="estoque-label">Total</p>
+                </div>
+                <div class="estoque-item">
+                    <h3>Mesas Disponíveis</h3>
+                    <p class="estoque-number" id="mesas-total">11</p>
+                    <p class="estoque-label">Total</p>
+                </div>
+            </div>
+            
+            <div class="estoque-form-section">
+                <h3>Atualizar Capacidade</h3>
+                <form id="estoque-form">
+                    <label for="estoque-password">Senha de Administração:</label>
+                    <input type="password" id="estoque-password" required>
+
+                    <label for="cadeiras-capacidade">Capacidade Total de Cadeiras:</label>
+                    <input type="number" id="cadeiras-capacidade" min="0" required>
+
+                    <label for="mesas-capacidade">Capacidade Total de Mesas:</label>
+                    <input type="number" id="mesas-capacidade" min="0" required>
+
+                    <button type="submit">Atualizar Capacidade</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="rental-manager.js"></script>
+    <script src="admin.js"></script>\n</body>\n</html>

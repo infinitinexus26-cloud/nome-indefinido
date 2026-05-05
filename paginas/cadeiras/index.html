@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeiras - Aluguel de Festa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cadeiras</h1>
+        <p>Aluguel de cadeiras confortáveis e resistentes para seu evento.</p>
+    </header>
+
+    <section id="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800" alt="Cadeiras 1">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800" alt="Cadeiras 2">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800" alt="Cadeiras 3">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" alt="Cadeiras 4">
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <div class="carousel-indicators">
+            <span class="indicator" onclick="currentSlide(0)"></span>
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section id="description">
+        <h2>Descrição</h2>
+        <p>Nossas cadeiras são ideais para casamentos, aniversários, eventos corporativos e festas em geral. São resistentes, confortáveis e fáceis de montar, garantindo aparência elegante e organização no seu evento.</p>
+        <ul>
+            <li><strong>Tipo:</strong> Cadeiras para eventos</li>
+            <li><strong>Material:</strong> Metal + assento estofado</li>
+            <li><strong>Capacidade:</strong> Uso adulto e infantil</li>
+            <li><strong>Montagem:</strong> Rápida e prática</li>
+            <li><strong>Estilo:</strong> Branco, dourado e transparente</li>
+            <li><strong>Uso:</strong> Salões, buffets e jardins</li>
+            <li><strong>Proteção:</strong> Pads no pé para não riscar o piso</li>
+            <li><strong>Indicação:</strong> Casamentos, aniversários e eventos corporativos</li>
+        </ul>
+    </section>
+
+    <section id="gallery">
+        <h2>Galeria de Fotos</h2>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400" alt="Cadeiras evento">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400" alt="Cadeiras elegantes">
+            <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400" alt="Cadeiras confortáveis">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400" alt="Cadeiras para festa">
+        </div>
+    </section>
+
+    <section id="comments">
+        <h2>Comentários</h2>
+        <div id="comments-list"></div>
+        <form id="comment-form">
+            <label for="rating">Avaliação (0 a 5 estrelas):</label>
+            <div class="stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                <input type="radio" id="star0" name="rating" value="0" checked><label for="star0">★</label>
+            </div>
+            <label for="comment-photo">Foto das Cadeiras</label>
+            <input type="file" id="comment-photo" accept="image/*">
+            <textarea id="comment-text" placeholder="Deixe seu comentário aqui..." required></textarea>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+    </section>
+
+    <section id="rental">
+        <h2>Solicitar Cadeiras</h2>
+        <form id="rental-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+
+            <label for="date">Data do Evento:</label>
+            <input type="date" id="date" required>
+
+            <div id="rental-summary" class="rental-summary"></div>
+
+            <label for="chairs">Quantidade de Cadeiras:</label>
+            <input type="number" id="chairs" min="1" max="44" required>
+
+            <label for="tables">Quantidade de Mesas:</label>
+            <input type="number" id="tables" min="0" max="11" required>
+
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Mensagem Personalizada:</label>
+            <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+
+            <button type="submit">Verificar Disponibilidade e Solicitar</button>
+        </form>
+    </section>
+
+    <script src="../../rental-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

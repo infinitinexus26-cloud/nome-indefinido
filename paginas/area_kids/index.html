@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Kids - Aluguel de Festa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Área Kids</h1>
+        <p>Espaço infantil seguro e divertido para seu evento.</p>
+    </header>
+
+    <section id="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd8a6082?w=800" alt="Área Kids 1">
+                <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=800" alt="Área Kids 2">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800" alt="Área Kids 3">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800" alt="Área Kids 4">
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <div class="carousel-indicators">
+            <span class="indicator" onclick="currentSlide(0)"></span>
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section id="description">
+        <h2>Descrição</h2>
+        <p>Área kids completa com brinquedos aprovados para crianças, decoração alegre e monitores qualificados. Ideal para festas infantis em espaços residenciais, salões ou buffets, garantindo diversão segura e organizada.</p>
+        <ul>
+            <li><strong>Tipo:</strong> Área Kids temática</li>
+            <li><strong>Piscina de bolinhas:</strong> Sim</li>
+            <li><strong>Segurança:</strong> Supervisionada por equipe especializada</li>
+            <li><strong>Espaço:</strong> Módulos acolchoados e revestidos</li>
+            <li><strong>Capacidade:</strong> Ideal para até 15 crianças</li>
+            <li><strong>Decoração:</strong> Temas infantis personalizados</li>
+            <li><strong>Atividades:</strong> Brinquedos, jogos e recreação</li>
+            <li><strong>Indicação:</strong> Eventos infantis e festas familiares</li>
+        </ul>
+    </section>
+
+    <section id="gallery">
+        <h2>Galeria de Fotos</h2>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" alt="Crianças brincando">
+            <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=400" alt="Piscina de bolinhas">
+            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd8a6082?w=400" alt="Área Kids decorada">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400" alt="Brinquedos infantis">
+        </div>
+    </section>
+
+    <section id="comments">
+        <h2>Comentários</h2>
+        <div id="comments-list"></div>
+        <form id="comment-form">
+            <label for="rating">Avaliação (0 a 5 estrelas):</label>
+            <div class="stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                <input type="radio" id="star0" name="rating" value="0" checked><label for="star0">★</label>
+            </div>
+            <label for="comment-photo">Foto da Área Kids</label>
+            <input type="file" id="comment-photo" accept="image/*">
+            <textarea id="comment-text" placeholder="Deixe seu comentário aqui..." required></textarea>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+    </section>
+
+    <section id="rental">
+        <h2>Alugar Área Kids</h2>
+        <form id="rental-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+
+            <label for="date">Data da Locação:</label>
+            <input type="date" id="date" required>
+
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Mensagem Personalizada:</label>
+            <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+
+            <button type="submit">Solicitar Aluguel</button>
+        </form>
+    </section>
+
+    <script src="../../rental-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
