@@ -1,124 +1,115 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arrumações - Aluguel de Festa</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>505 - Manutenção</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #0a0f1f, #111827);
+        color: #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box {
+        text-align: center;
+        padding: 40px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+        max-width: 480px;
+        width: 90%;
+    }
+
+    .erro {
+        font-size: 14px;
+        letter-spacing: 4px;
+        color: #9ca3af;
+        margin-bottom: 5px;
+    }
+
+    .code {
+        font-size: 90px;
+        font-weight: 700;
+        color: #f59e0b;
+        margin-bottom: 10px;
+    }
+
+    .title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .desc {
+        font-size: 15px;
+        color: #9ca3af;
+        margin-bottom: 25px;
+    }
+
+    .divider {
+        width: 60px;
+        height: 3px;
+        background: #f59e0b;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: #f59e0b;
+        color: #111827;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        background: #d97706;
+    }
+
+    footer {
+        margin-top: 25px;
+        font-size: 12px;
+        color: #6b7280;
+    }
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Arrumações</h1>
-        <p>Organização completa de mesas, doces e decoração para sua festa.</p>
-    </header>
 
-    <!-- Seletor de arrumações no topo -->
-    <section id="arrumacao-selector-section">
-        <div class="arrumacao-selector">
-            <label for="arrumacao-select">Selecione a Arrumação:</label>
-            <select id="arrumacao-select">
-                <option value="">Carregando arrumações...</option>
-            </select>
-        </div>
+<div class="box">
+    <div class="erro">ERRO</div>
+    <div class="code">505</div>
 
-        <div class="arrumacao-content" id="arrumacao-content">
-            <!-- Conteúdo será carregado dinamicamente -->
-        </div>
-    </section>
+    <div class="title">Site em manutenção</div>
 
-    <section id="carousel">
-        <div class="carousel-container">
-            <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1530103862676-de3c9a59af38?w=800" alt="Arrumações 1">
-                <img src="https://images.unsplash.com/photo-1460312675542-4e8405a7f0c4?w=800" alt="Arrumações 2">
-                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800" alt="Arrumações 3">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Arrumações 4">
-            </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-        <div class="carousel-indicators">
-            <span class="indicator" onclick="currentSlide(0)"></span>
-            <span class="indicator" onclick="currentSlide(1)"></span>
-            <span class="indicator" onclick="currentSlide(2)"></span>
-            <span class="indicator" onclick="currentSlide(3)"></span>
-        </div>
-    </section>
+    <div class="divider"></div>
 
-    <section id="description">
-        <h2>Descrição</h2>
-        <p>Serviço de arrumações para festas com montagem de mesas, painéis, bolos decorativos e organização do espaço. Ideal para eventos que precisam de apresentação profissional e atenção aos detalhes.</p>
-        <ul>
-            <li><strong>Tipo:</strong> Arrumações para festas</li>
-            <li><strong>Decoração:</strong> Temática e personalizada</li>
-            <li><strong>Montagem:</strong> Mesa de doces, painel e itens decorativos</li>
-            <li><strong>Detalhes:</strong> Arranjos, doces e lembrancinhas</li>
-            <li><strong>Atendimento:</strong> Profissional e pontual</li>
-            <li><strong>Ambientes:</strong> Residenciais, salões e buffets</li>
-            <li><strong>Suporte:</strong> Montagem e desmontagem completas</li>
-            <li><strong>Indicação:</strong> Aniversários, chás, batizados e eventos corporativos</li>
-        </ul>
-    </section>
+    <div class="desc">
+        Estamos realizando ajustes para melhorar o sistema.<br>
+        Tente acessar novamente em alguns minutos.
+    </div>
 
-    <section id="gallery">
-        <h2>Galeria de Fotos</h2>
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1460312675542-4e8405a7f0c4?w=400" alt="Mesa decorada">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400" alt="Painel de festa">
-            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400" alt="Arranjo decorativo">
-            <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400" alt="Detalhes da decoração">
-        </div>
-    </section>
+    <a href="" class="btn">Recarregar página</a>
 
-    <section id="comments">
-        <h2>Comentários</h2>
-        <div id="comments-list"></div>
-        <form id="comment-form">
-            <label for="rating">Avaliação (0 a 5 estrelas):</label>
-            <div class="stars">
-                <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-                <input type="radio" id="star0" name="rating" value="0" checked><label for="star0">★</label>
-            </div>
-            <label for="comment-photo">Foto da arrumação</label>
-            <input type="file" id="comment-photo" accept="image/*">
-            <small class="photo-warning">Por favor, não envie fotos inapropriadas ou ofensivas.</small>
-            <textarea id="comment-text" placeholder="Deixe seu comentário aqui..." required></textarea>
-            <button type="submit">Enviar Comentário</button>
-        </form>
-    </section>
+    <footer>
+        Serviço temporariamente indisponível
+    </footer>
+</div>
 
-    <section id="rental">
-        <h2>Solicitar Arrumação</h2>
-        
-        <form id="rental-form">
-            <input type="hidden" id="selected-arrumacao" value="">
-
-            <label for="name">Nome:</label>
-            <input type="text" id="name" required>
-
-            <label for="date">Data do Evento:</label>
-            <input type="date" id="date" required>
-
-            <div id="rental-summary" class="rental-summary"></div>
-
-            <label for="phone">Telefone:</label>
-            <input type="tel" id="phone" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <label for="message">Mensagem Personalizada:</label>
-            <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
-
-            <button type="submit">Solicitar Serviço</button>
-        </form>
-    </section>
-
-    <script src="../../rental-manager.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
