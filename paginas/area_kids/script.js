@@ -84,7 +84,7 @@ document.getElementById('rental-form').addEventListener('submit', function(e) {
     const encodedMessage = encodeURIComponent(whatsappMessage);
     
     // Show success message
-    alert('✅ Data bloqueada com sucesso! Você será redirecionado para o WhatsApp.');
+    alert('✅ Data reservada com sucesso! Você será redirecionado para o WhatsApp.');
     
     // Redirect to WhatsApp
     window.location.href = `https://wa.me/5521975600493?text=${encodedMessage}`;
