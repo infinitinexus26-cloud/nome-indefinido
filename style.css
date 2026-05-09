@@ -78,6 +78,14 @@ header {
     font-size: 1.8rem;
 }
 
+.logo img {
+    width: 50px;      /* Defina o tamanho desejado */
+    height: auto;     /* Mantém a proporção da imagem */
+    max-height: 50px; /* Limita a altura máxima */
+    object-fit: contain;
+    vertical-align: middle;
+}
+
 nav ul {
     display: flex;
     gap: 30px;
