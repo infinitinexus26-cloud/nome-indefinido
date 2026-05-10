@@ -195,9 +195,9 @@ function currentSlide(index) {
     updateCarousel();
 }
 
-setInterval(() => {
-    moveSlide(1);
-}, 5000);
+//setInterval(() => {
+//    moveSlide(1);
+//}, 5000);
 
 updateCarousel();
 
