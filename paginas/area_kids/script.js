@@ -116,9 +116,9 @@ function currentSlide(index) {
 }
 
 // Auto-play carousel
-setInterval(() => {
-    moveSlide(1);
-}, 5000);
+//setInterval(() => {
+//    moveSlide(1);
+//}, 5000);
 
 // Initialize carousel
 updateCarousel();
