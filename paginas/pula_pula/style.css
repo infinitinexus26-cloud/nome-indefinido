@@ -182,68 +182,66 @@ button:hover {
 }
 
 /* ==========================================================
-   CORREÇÃO DAS IMAGENS DOS PRODUTOS/SERVIÇOS
-   Faz a imagem aparecer inteira sem cortes
-   Adicione ao final do style.css
+   CORREÇÃO DEFINITIVA PARA AS IMAGENS DOS CARDS
+   Remove as regras antigas e força a imagem a aparecer inteira
+   sem cortes e centralizada.
+   Adicione ESTE BLOCO NO FINAL do style.css
    ========================================================== */
 
-/* Imagens dos cards de serviços */
-.service-image {
-    width: 100%;
-    height: 250px;          /* Ajuste a altura conforme desejar */
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    overflow: hidden;
-}
-
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;    /* Mostra a imagem inteira sem cortar */
-    transition: var(--transition);
-}
-
-/* Imagens dos cards de preços */
+.service-image,
 .price-image {
     width: 100%;
-    height: 250px;
+    height: auto !important;        /* Altura automática */
+    min-height: 220px;              /* Altura mínima do card */
     background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    overflow: hidden;
+    padding: 15px;
+    overflow: visible !important;
 }
 
+.service-image img,
 .price-image img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;    /* Mostra a imagem inteira sem cortar */
-    transition: var(--transition);
+    max-width: 100%;
+    height: auto !important;        /* Mantém proporção */
+    max-height: 500px;
+    object-fit: contain !important; /* Mostra a imagem inteira */
+    display: block;
+    margin: 0 auto;
+    transform: none !important;
 }
 
-/* Mantém o efeito de zoom sem cortar a imagem */
+/* Remove o zoom exagerado no hover */
 .service-card:hover .service-image img,
 .price-card:hover .price-image img {
-    transform: scale(1.05);
+    transform: scale(1.03) !important;
 }
 
-/* Ajuste para celulares */
+/* Ajustes para celulares */
 @media (max-width: 768px) {
     .service-image,
     .price-image {
-        height: 220px;
-        padding: 8px;
+        min-height: 180px;
+        padding: 10px;
+    }
+
+    .service-image img,
+    .price-image img {
+        max-height: 300px;
     }
 }
 
 @media (max-width: 480px) {
     .service-image,
     .price-image {
-        height: 200px;
-        padding: 5px;
+        min-height: 160px;
+        padding: 8px;
+    }
+
+    .service-image img,
+    .price-image img {
+        max-height: 250px;
     }
 }
