@@ -612,6 +612,35 @@ nav ul li a:hover::after {
     margin-top: 30px;
 }
 
+#installBtn{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:9999;
+
+    padding:15px 25px;
+
+    border:none;
+    border-radius:30px;
+
+    background:#ff6600;
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+#installBtn:hover{
+    transform:translateX(-50%) scale(1.05);
+}
+
 .social-media a {
     width: 45px;
     height: 45px;
