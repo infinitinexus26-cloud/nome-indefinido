@@ -59,16 +59,14 @@
                 <a href="#servicos" class="btn-primary">Ver Serviços</a>
                 <a href="https://wa.me/5521975600493?text=Olá, quero falar sobre locação de brinquedos" class="btn-secondary" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-<button id="installBtn" hidden>
-📱 Instalar Aplicativo
+                <button id="installBtn" style="display:none;">
+    📱 Instalar Aplicativo
 </button>
 
 <script>
-let deferredPrompt;
+let deferredPrompt = null;
+
+const installBtn = document.getElementById('installBtn');
 
 window.addEventListener('beforeinstallprompt', (e) => {
 
@@ -76,23 +74,42 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
     deferredPrompt = e;
 
-    document.getElementById('installBtn').hidden = false;
+    installBtn.style.display = 'block';
 });
 
-document.getElementById('installBtn')
-.addEventListener('click', async () => {
+installBtn.addEventListener('click', async () => {
+
+    if (!deferredPrompt) {
+        alert('Instalação não disponível ainda.');
+        return;
+    }
 
     deferredPrompt.prompt();
 
-    const result = await deferredPrompt.userChoice;
+    const choiceResult = await deferredPrompt.userChoice;
 
-    if(result.outcome === 'accepted'){
-        console.log('Aplicativo instalado');
+    if (choiceResult.outcome === 'accepted') {
+
+        console.log('Usuário instalou o aplicativo');
+
+        installBtn.style.display = 'none';
     }
 
     deferredPrompt = null;
 });
+
+window.addEventListener('appinstalled', () => {
+
+    console.log('PWA instalado');
+
+    installBtn.style.display = 'none';
+});
 </script>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Serviços -->
     <section id="servicos" class="services">
         <div class="container">
