@@ -1,0 +1,21 @@
+{
+  "name": "festa & diversão",
+  "short_name": "F&D",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff6600",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/fotos/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/fotos/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
