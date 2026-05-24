@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff6600">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Infinity Festas">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <script>
         // Check site status on load
         window.addEventListener('load', function() {
@@ -37,28 +43,36 @@
                     
                 </ul>
             </nav>
-            <a href="/app/app-release.apk" download class="download-btn">
-            📱 Baixar Aplicativo
-            </a>
+                <button id="installBtn" hidden>
+📱 Instalar Aplicativo
+</button>
 
-<style>
-.download-btn{
-    display:inline-block;
-    padding:15px 25px;
-    background:#ff6600;
-    color:white;
-    text-decoration:none;
-    border-radius:12px;
-    font-size:18px;
-    font-weight:bold;
-    transition:0.3s;
-}
+<script>
+let deferredPrompt;
 
-.download-btn:hover{
-    background:#e65c00;
-    transform:scale(1.05);
-}
-</style>
+window.addEventListener('beforeinstallprompt', (e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    document.getElementById('installBtn').hidden = false;
+});
+
+document.getElementById('installBtn')
+.addEventListener('click', async () => {
+
+    deferredPrompt.prompt();
+
+    const result = await deferredPrompt.userChoice;
+
+    if(result.outcome === 'accepted'){
+        console.log('Aplicativo instalado');
+    }
+
+    deferredPrompt = null;
+});
+</script>
             </a>
             <div class="menu-toggle">
                 <i class="fa-solid fa-bars"></i>
